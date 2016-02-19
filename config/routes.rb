@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-  root to: "uesrs#index"
+  root to: "users#index"
 
 end
