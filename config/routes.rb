@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
-
-
-
   get "/newgame", to: "choices#index"
 
   get "/newgame/backstory", to: "games#new"
