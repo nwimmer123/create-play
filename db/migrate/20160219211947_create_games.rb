@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :starting_choice_id
       t.boolean :published
       t.text :backstory
-      t.integer :user
+      t.belongs_to :user
 
       t.timestamps null: false
     end

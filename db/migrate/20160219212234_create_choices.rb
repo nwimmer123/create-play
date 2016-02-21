@@ -6,7 +6,7 @@ class CreateChoices < ActiveRecord::Migration
       t.integer :choiceB_id
       t.text :choiceBtext
       t.text :story
-      t.integer :game
+      t.belongs_to :game
 
       t.timestamps null: false
     end

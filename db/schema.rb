@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160219213713) do
     t.integer  "choiceB_id"
     t.text     "choiceBtext"
     t.text     "story"
+    t.integer  "game_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160219213713) do
     t.integer  "starting_choice_id"
     t.boolean  "published"
     t.text     "backstory"
+    t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
