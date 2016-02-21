@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
   get '/games', to: 'games#index', as: 'all_games'
+  get '/games/:id', to: 'games#show', as: 'one_game'
 
 end
