@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/profile', to: "users#profile", as: "my_profile"
   get '/signup', to: 'users#new', as: 'new_user'
   post '/users', to: 'users#create'
-  get '/users/:id', to: 'users#show', as: 'user_profile'
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+  patch '/users/:id', to: 'users#update'
 
   get '/games', to: 'games#index', as: 'all_games'
   get '/games/:id', to: 'games#show', as: 'one_game'

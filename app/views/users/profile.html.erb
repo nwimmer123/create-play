@@ -1,0 +1,19 @@
+<div>
+  <h3>Your information</h3>
+  Name: <%= @user.name %>
+  <br>
+  Email: <%= @user.email %>
+</div>
+<div>
+  <h3>Your Games</h3>
+  <% @user.games.each do |game| %>
+      
+      <li><%= link_to game.title, "/games/#{game.id}" %></li>
+
+  <% end %>
+</div>
+<div>
+  <% if params[:id] == session[:user_id].to_s || params[:action] == "profile" %>
+  <%= button_to "Edit Profile", edit_user_path(@user.id), method: "get", class: "btn btn-primary" %>
+<% end %>
+</div>
