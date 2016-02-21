@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You do not have access to update profiles that are not your own."
       redirect_to root_path
     end
-    current_params = params.require(:user).permit(:first_name, :last_name, :current_city)
+    current_params = params.require(:user).permit(:name, :email)
     @user.update_attributes(current_params)
     redirect_to my_profile_path
   end
