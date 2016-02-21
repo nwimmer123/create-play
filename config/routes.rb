@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "users#index"
+  root to: 'users#index'
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
@@ -12,10 +12,6 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'user_profile'
 
-  get "/newgame", to: "choices#index"
-
-  get "/newgame/backstory", to: "games#new"
-  post "/newgame/backstory", to: "games#create"
-
+  get '/games', to: 'games#index', as: 'all_games'
 
 end

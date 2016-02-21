@@ -1,10 +1,14 @@
 <div>
   <h3>Your information</h3>
   Name: <%= @user.name %>
-  Emails: <%= @user.email %>
+  <br>
+  Email: <%= @user.email %>
 </div>
 <div>
   <h3>Your Games</h3>
-  Name: <%= @user.name %>
-
+  <% @games.each do |game| %>
+      <% if current_user == game.user_id %>
+        <li><%= link_to game.title, "/games/#{game.id}" %></li>
+      <% end %>
+  <% end %>
 </div>
