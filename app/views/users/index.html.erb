@@ -1,9 +1,14 @@
-<h1>Welcome to Create Your Own Adventure</h1>
-
-    <div class="col-xs-1 col-xs-offset-4">
-      <%= button_to "Create", new_game_path, method: "get", class: "btn btn-primary" %>
-    </div>
-
-    <div class="col-xs-1 col-xs-offset-4">
-      <%= button_to "Play", all_games_path, method: "get", class: "btn btn-primary" %>
-    </div>
+<div class="container text-center title">
+  <h1>Create Your Own Adventure</h1>
+</div>
+<br>
+<div class="container text-center">
+  <%= button_to "Play", all_games_path, method: "get", class: "btn btn-primary" %>
+</div>
+<br>
+<br>
+<br>
+<div class="container text-center">
+  <%= button_to "Create", new_game_path, method: "get", class: "btn btn-primary" %>
+</div>
+    
