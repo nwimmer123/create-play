@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/games/:id', to: 'games#show', as: 'one_game'
   get '/newgame', to: 'games#start', as: 'new_game'
   get '/newGameBackstory', to: 'games#new', as: 'new_game_backstory'
+  post '/newGameBackstory', to: 'games#create'
   
 
 end

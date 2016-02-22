@@ -1,8 +1,8 @@
-<section id='signup-form' class="container">
+<section id='newGameBackstory-form' class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
-      <%= form_for :user, url: users_path do |f| %>
+      <%= form_for :game, url: new_game_backstory_path do |f| %>
         <fieldset>
           <legend>New Game</legend>
 
@@ -16,13 +16,15 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="backstory">Backstory</label>
             <div class="col-md-8">
-              <%= f.text_area :email, required: true, class: "form-control" %><br>
+              <%= f.text_area :backstory, required: true, class: "form-control" %><br>
             </div>
           </div>
 
+
+
           <div class="form-group">
             <div class="col-md-12">
-              <%= f.submit "Sign up", class: "btn btn-success" %>
+              <%= f.submit "New Story", class: "btn btn-success" %>
             </div>
           </div>
           

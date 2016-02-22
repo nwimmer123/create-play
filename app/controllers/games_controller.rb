@@ -18,6 +18,10 @@ class GamesController < ApplicationController
   end
 
   def create
+    game_params = params.require(:game).permit(:title, :backstory, :user_id)
+    @game = Game.new(game_params.merge(user_id: session[:user_id]))
+    @game.save
+    redirect_to one_game_path(@game.id)
   end
 
 
