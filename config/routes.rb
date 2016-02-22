@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/newgame', to: 'games#start', as: 'new_game'
   get '/newGameBackstory', to: 'games#new', as: 'new_game_backstory'
   post '/newGameBackstory', to: 'games#create'
-  
+
+  get '/choices', to: 'choices#new', as: 'new_choice'
+  post '/choices', to: 'choices#create'
+
 
 end
