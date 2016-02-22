@@ -1,3 +1,9 @@
 <h1>Welcome to Create Your Own Adventure</h1>
-<button>Create</button>
-<button>Play</button>
+
+    <div class="col-xs-1 col-xs-offset-4">
+      <%= button_to "Create", new_game_path, method: "get", class: "btn btn-primary" %>
+    </div>
+
+    <div class="col-xs-1 col-xs-offset-4">
+      <%= button_to "Play", all_games_path, method: "get", class: "btn btn-primary" %>
+    </div>
