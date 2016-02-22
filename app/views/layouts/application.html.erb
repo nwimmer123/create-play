@@ -32,6 +32,17 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <div>
+      <% flash.each do |name, msg| %>
+        <div id="flash_messages">
+        <br>
+          <div class="alert alert-info" role="alert">
+            <%= msg %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
 <%= yield %>
 
 </body>
