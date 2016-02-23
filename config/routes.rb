@@ -16,16 +16,16 @@ Rails.application.routes.draw do
 
   get '/games', to: 'games#index', as: 'index_games'
   get '/games/new', to: 'games#new', as: 'new_game'
- 
   post '/games', to: 'games#create'
- 
   get '/games/:id/edit', to: 'games#edit', as: 'edit_game'
   put '/games/:id', to: 'games#update'
   get '/games/:id', to: 'games#show', as: 'show_game'
  
-  get '/choices', to: 'choices#new', as: 'new_choice'
-  post '/choices', to: 'choices#create'
-  get '/choices/:id', to: 'choices#show'
+  get '/games/:id/choices/new', to: 'choices#new', as: 'new_choice'
+  post '/games/:id/choices', to: 'choices#create'
+  get '/games/:id/choices/:id/edit', to: 'choices#edit', as: 'edit_choice' 
+  put '/games/:id/choices/:id', to: 'choices#update'
+  get '/games/:id/choices/:id', to: 'choices#show', as: 'edit_show'
 
   
 

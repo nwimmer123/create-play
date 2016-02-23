@@ -5,9 +5,7 @@ class ChoicesController < ApplicationController
 
   def new
     @choice = Choice.new 
-    
   end
-
 
   def create
     choice_params = params.require(:choice).permit(:story, :choiceAtext, :choiceA_id, :choiceBtext, :choiceB_id, :game_id)
@@ -18,6 +16,24 @@ class ChoicesController < ApplicationController
 
   end
 
+  def edit
+  #   @choice = Choice.find_by_id(params(id))
+  #   if @choice == nil
+  #     @choice = Choice.new
+  end
 
+  def update
+  end
+
+  def show
+  end
 
 end
+
+
+# def new_a
+#   parent = Choice.find_by_id()
+#   child = Choice.create()
+#   parent.choice_a = child
+#   redirect_to choices_edit(child)
+# end

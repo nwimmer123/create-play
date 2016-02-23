@@ -7,7 +7,7 @@
 <div>
   <h3>Your Games</h3>
   <% @user.games.each do |game| %>
-    <li><%= link_to game.title, "/games/#{game.id}" %></li>
+    <li><%= link_to game.title, "/games/#{game.id}" %> <%= button_to "Edit", edit_game_path(game.id), method: "get", class: "btn" %></li>
   <% end %>
 </div>
 <div>
