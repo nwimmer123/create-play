@@ -27,9 +27,14 @@ class GamesController < ApplicationController
 
   def update
     game_params = params.require(:game).permit(:title, :backstory, :user_id, :starting_choice_id)
-    @user.update_attributes(current_params)
+    @user.update_attributes(game_params)
   end
 
+  def destroy
+    @game = Game.find_by_id(params[:id])
+    @game.destroy
+    redirect_to my_profile_path
+  end
 
 
 end
