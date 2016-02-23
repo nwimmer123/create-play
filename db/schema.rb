@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20160219213713) do
   enable_extension "plpgsql"
 
   create_table "choices", force: :cascade do |t|
-    t.integer  "choiceA_id"
-    t.text     "choiceAtext"
-    t.integer  "choiceB_id"
-    t.text     "choiceBtext"
+    t.integer  "choice_a_id"
+    t.text     "choice_a_text"
+    t.integer  "choice_b_id"
+    t.text     "choice_b_text"
     t.text     "story"
     t.integer  "game_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "games", force: :cascade do |t|

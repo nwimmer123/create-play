@@ -8,7 +8,7 @@ class ChoicesController < ApplicationController
   end
 
   def create
-    choice_params = params.require(:choice).permit(:story, :choiceAtext, :choiceA_id, :choiceBtext, :choiceB_id, :game_id)
+    choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     @choice = Choice.new(choice_params)
     @choice.save
     p @choice.inspect
@@ -25,7 +25,7 @@ class ChoicesController < ApplicationController
   end
 
   def update
-    choice_params = params.require(:choice).permit(:story, :choiceAtext, :choiceA_id, :choiceBtext, :choiceB_id, :game_id)
+    choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     @choice.update_attributes(choice_params)
     redirect_to edit_choice_path(@choice.id)
   end
