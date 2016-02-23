@@ -1,5 +1,5 @@
 class ChoicesController < ApplicationController
-// make a global incrementer to track choice_ids 
+#// make a global incrementer to track choice_ids 
   def index
   end
 

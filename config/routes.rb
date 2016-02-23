@@ -14,14 +14,17 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy', as: 'delete_user'
 
-  get '/games', to: 'games#index', as: 'all_games'
-  get '/games/:id', to: 'games#show', as: 'one_game'
-  get '/newgame', to: 'games#start', as: 'new_game'
-  get '/newGameBackstory', to: 'games#new', as: 'new_game_backstory'
-  post '/newGameBackstory', to: 'games#create'
+  get '/games', to: 'games#index', as: 'index_games'
+  get '/games/:id', to: 'games#show', as: 'show_game'
+  get '/games/new', to: 'games#new', as: 'new_game'
+  post '/games', to: 'games#create'
+  get 'games/:id/edit' to: 'games#edit' as: 'edit_game'
+  put 'games/:id' to: 'games#update'
 
   get '/choices', to: 'choices#new', as: 'new_choice'
   post '/choices', to: 'choices#create'
+  get '/choices/:id', to: 'choices#show'
 
+  
 
 end
