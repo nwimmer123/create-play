@@ -9,7 +9,7 @@ class ChoicesController < ApplicationController
 
   def create
     choice_params = params.require(:choice).permit(:story, :choiceAtext, :choiceA_id, :choiceBtext, :choiceB_id, :game_id)
-    @choice = Choice.new(choice_params.merge(game_id: @gameid))
+    @choice = Choice.new(choice_params)
     @choice.save
     p @choice.inspect
     redirect_to new_choice_path(@choice) #with id of the clikled edit path
@@ -17,12 +17,17 @@ class ChoicesController < ApplicationController
   end
 
   def edit
-  #   @choice = Choice.find_by_id(params(id))
-  #   if @choice == nil
-  #     @choice = Choice.new
+    if @choice == nil
+      @choice = Choice.new
+    else
+      @choice = Choice.find_by_id(params[:id])
+    end
   end
 
   def update
+    choice_params = params.require(:choice).permit(:story, :choiceAtext, :choiceA_id, :choiceBtext, :choiceB_id, :game_id)
+    @choice.update_attributes(choice_params)
+    redirect_to edit_choice_path(@choice.id)
   end
 
   def show
@@ -30,7 +35,7 @@ class ChoicesController < ApplicationController
 
 end
 
-
+## When I create a new choice it needs to create a new node, same in games
 # def new_a
 #   parent = Choice.find_by_id()
 #   child = Choice.create()

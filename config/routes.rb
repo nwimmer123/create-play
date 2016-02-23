@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/games', to: 'games#index', as: 'index_games'
   get '/games/new', to: 'games#new', as: 'new_game'
-  post '/games', to: 'games#create'
+  post '/games/new', to: 'games#create'
   get '/games/:id/edit', to: 'games#edit', as: 'edit_game'
   put '/games/:id', to: 'games#update'
   get '/games/:id', to: 'games#show', as: 'show_game'
@@ -26,7 +26,5 @@ Rails.application.routes.draw do
   get '/games/:id/choices/:id/edit', to: 'choices#edit', as: 'edit_choice' 
   put '/games/:id/choices/:id', to: 'choices#update'
   get '/games/:id/choices/:id', to: 'choices#show', as: 'edit_show'
-
-  
 
 end
