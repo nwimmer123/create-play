@@ -37,6 +37,8 @@ group :development, :test do
   gem 'byebug'
   #makes rspec default tester
   gem 'rspec-rails', '~> 3.0'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
