@@ -5,11 +5,12 @@ class GamesController < ApplicationController
   end
 
   def new
+    puts 'new called'
     @game = Game.new
-    @gameid = @game.id
   end
 
   def show
+    puts 'show called'
     @game = Game.find_by_id(params[:id])
   end
 
@@ -24,6 +25,13 @@ class GamesController < ApplicationController
     @game.save
     redirect_to new_choice_path(@game.id)
   end
+
+  def edit
+  end
+
+  def update
+  end
+
 
 
 end

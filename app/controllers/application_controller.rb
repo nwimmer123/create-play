@@ -5,9 +5,5 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def gameid
-    @gameid = Game.find_by_id(params[:id])
-  end
-
   include SessionsHelper
 end
