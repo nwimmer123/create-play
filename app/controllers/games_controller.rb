@@ -6,6 +6,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @gameid = @game.id
   end
 
   def show
@@ -21,7 +22,7 @@ class GamesController < ApplicationController
     game_params = params.require(:game).permit(:title, :backstory, :user_id)
     @game = Game.new(game_params.merge(user_id: session[:user_id]))
     @game.save
-    redirect_to one_game_path(@game.id)
+    redirect_to new_choice_path(@game.id)
   end
 
 
