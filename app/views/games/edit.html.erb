@@ -1,0 +1,36 @@
+<section id='edit-game-form' class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <%= form_for @game, url: show_game_path, method: "patch" do |f| %>
+        <fieldset>
+          <legend>Edit Game</legend>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="title">Title</label>
+            <div class="col-md-8">
+              <%= f.text_field :title, required: true, class: "form-control", value: @game.title %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="backstory">Backstory</label>
+            <div class="col-md-8">
+              <%= f.text_area :backstory, required: true, class: "form-control", value: @game.backstory %><br>
+            </div>
+          </div>
+
+          <%= f.hidden_field :starting_choice_id, :value => 1 %>
+
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= f.submit "Save", class: "btn btn-success" %>
+            </div>
+          </div>
+          
+        </fieldset>
+      <% end %>
+
+    </div>
+  </div>
+</section>

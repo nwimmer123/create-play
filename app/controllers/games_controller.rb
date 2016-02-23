@@ -22,9 +22,12 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @game = Game.find_by_id(params[:id])
   end
 
   def update
+    game_params = params.require(:game).permit(:title, :backstory, :user_id, :starting_choice_id)
+    @user.update_attributes(current_params)
   end
 
 
