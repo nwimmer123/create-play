@@ -5,28 +5,29 @@ class ChoicesController < ApplicationController
 
   def new
     @choice = Choice.new 
+    @game = Game.find_by_id(params[:game_id])
   end
 
   def create
     ##the form is submitting the wrong value
     ##on second page creation, game id is changed to the user id in the path --WHY??
       ##ANSWER - SOMEWHERE I'm swapping the choice id w the game id
-   
+
     @game = Game.find_by_id(params[:game_id])
+
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     #debugger
 
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
- 
-    @choice.save
 
-##if working, but on the second creation, @game is nil. why?
-##it's still in the params
+    @choice.save
 
     if @choice.parent() == nil 
       ##this isn't working. triggered evthough it had a parent
-
       @game.starting_choice_id = @choice.id
+      p "printing here"
+      p @game.starting_choice_id
+      p @game.id
       @game.save
     else
       @choice.choice_a = @choice.id
