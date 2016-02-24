@@ -25,8 +25,9 @@
 }
 
 .text {
+  color: black;
   font-family: 'Oswald', sans-serif;
-  text-shadow: 1px 1px #DA9CDC;
+  text-shadow: 1px 1px #AA2AB9;
 }
 
 .title {
@@ -60,6 +61,12 @@
 .navbar {
   opacity: .6;
   color: black;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 
