@@ -69,4 +69,17 @@ button {
   background: none;
 }
 
+#info {
+  z-index: 200;
+}
+
+.info-box {
+  background-color: grey;
+  opacity: .6;
+  z-index: 50;
+  border-radius: 30px;
+  padding-bottom: 10px;
+
+}
+
 
