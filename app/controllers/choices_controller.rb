@@ -1,5 +1,5 @@
 class ChoicesController < ApplicationController
-#// make a global incrementer to track choice_ids 
+
   def index
   end
 
@@ -10,14 +10,21 @@ class ChoicesController < ApplicationController
   def create
     @game = Game.find_by_id(params[:id])
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
+    #debugger
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
     @choice.save
 
-    #if parent = nil then do following
-    @game.starting_choice_id = @choice.id
-    @game.save
+##if working, but on the second creation, @game is nil. why?
+##it's still in the params
+    if @choice.parent() == nil 
+      @game.starting_choice_id = @choice.id
+      @game.save
+    else
+      @choice.choice_a = @choice.id
+      @choice.save
+    end
 
-    redirect_to new_choice_path(@choice) #with id of the clikled edit path
+    redirect_to new_choice_path(@choice.id) #with id of the clikled edit path
 
   end
 

@@ -1,9 +1,10 @@
-<section id='login-form' class="container">
+<div align="center"><img src="assets/starfield.jpg" class="background"></div>
+<section id='login-form' class="container form">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_for @user, url: login_path, method: "post" do |f| %>
         <fieldset>
-          <legend>Login:</legend>
+          <h1 class="text-center">Login</h1>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="email">Email Address</label>

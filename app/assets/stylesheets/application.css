@@ -35,7 +35,6 @@
   font-size: 80px;
   color: #B30707;
   text-shadow: 3px 3px #DA9CDC;
-
 }
 
 .background {
@@ -79,7 +78,10 @@ button {
   z-index: 50;
   border-radius: 30px;
   padding-bottom: 10px;
+}
 
+.form {
+  color: white;
 }
 
 
