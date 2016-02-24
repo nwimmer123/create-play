@@ -16,7 +16,7 @@ class ChoicesController < ApplicationController
     @game = Game.find_by_id(params[:game_id])
 
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
-    #debugger
+    
 
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
 
@@ -25,16 +25,14 @@ class ChoicesController < ApplicationController
     if @choice.parent() == nil 
       ##this isn't working. triggered evthough it had a parent
       @game.starting_choice_id = @choice.id
-      p "printing here"
-      p @game.starting_choice_id
-      p @game.id
+
       @game.save
     else
       @choice.choice_a = @choice.id
       @choice.save
     end
 
-    redirect_to new_choice_path(@choice.id) #with id of the clikled edit path
+    redirect_to new_choice_path(@game) #with id of the clikled edit path
 
   end
 
