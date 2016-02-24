@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ 
+
   root to: 'users#index'
 
   get '/login', to: 'sessions#new', as: 'login'
@@ -22,8 +24,8 @@ Rails.application.routes.draw do
   get '/games/:id', to: 'games#show', as: 'show_game'
   delete '/games/:id', to: 'games#destroy', as: 'delete_game'
  
-  get '/games/:id/choices/new', to: 'choices#new', as: 'new_choice'
-  post '/games/:id/choices/new', to: 'choices#create'
+  get '/games/:game_id/choices/new', to: 'choices#new', as: 'new_choice'
+  post '/games/:game_id/choices/new', to: 'choices#create'
   get '/games/:id/choices/:id/edit', to: 'choices#edit', as: 'edit_choice' 
   put '/games/:id/choices/:id', to: 'choices#update'
   get '/games/:id/choices/:id', to: 'choices#show', as: 'edit_show'

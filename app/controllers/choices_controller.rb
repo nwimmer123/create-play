@@ -1,5 +1,8 @@
 class ChoicesController < ApplicationController
 
+
+  
+
   def index
   end
 
@@ -8,17 +11,22 @@ class ChoicesController < ApplicationController
   end
 
   def create
-    @game = Game.find_by_id(params[:id])
+    ##on second page creation, game id is changed to the user id in the path --WHY??
+    gameid = params[:game_id]
+    @game = Game.find_by_id(gameid)
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     #debugger
-    
-    #this works, but i'm gonna try another approach
-    @choice = Choice.new(choice_params.merge(game_id: @game.id))
+
+    @choice = Choice.new(choice_params.merge(game_id: gameid))
+ 
     @choice.save
 
 ##if working, but on the second creation, @game is nil. why?
 ##it's still in the params
+
     if @choice.parent() == nil 
+      ##this isn't working. triggered evthough it had a parent
+
       @game.starting_choice_id = @choice.id
       @game.save
     else
@@ -29,6 +37,9 @@ class ChoicesController < ApplicationController
     redirect_to new_choice_path(@choice.id) #with id of the clikled edit path
 
   end
+
+  #in create assigns chuld parents id
+  #@choice = Choice.new(choice_params.merge(choice_a_id: params[:id]))
 
   def edit
     if @choice == nil
