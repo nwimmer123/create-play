@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   delete '/games/:id', to: 'games#destroy', as: 'delete_game'
  
   get '/games/:id/choices/new', to: 'choices#new', as: 'new_choice'
-  post '/games/:id/choices', to: 'choices#create'
+  post '/games/:id/choices/new', to: 'choices#create'
   get '/games/:id/choices/:id/edit', to: 'choices#edit', as: 'edit_choice' 
   put '/games/:id/choices/:id', to: 'choices#update'
   get '/games/:id/choices/:id', to: 'choices#show', as: 'edit_show'

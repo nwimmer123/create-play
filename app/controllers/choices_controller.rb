@@ -8,10 +8,15 @@ class ChoicesController < ApplicationController
   end
 
   def create
+    @game = Game.find_by_id(params[:id])
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
-    @choice = Choice.new(choice_params)
+    @choice = Choice.new(choice_params.merge(game_id: @game.id))
     @choice.save
-    p @choice.inspect
+
+    #if parent = nil then do following
+    @game.starting_choice_id = @choice.id
+    @game.save
+
     redirect_to new_choice_path(@choice) #with id of the clikled edit path
 
   end

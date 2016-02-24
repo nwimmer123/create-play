@@ -24,6 +24,11 @@
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
+.text {
+  font-family: 'Oswald', sans-serif;
+  text-shadow: 1px 1px #DA9CDC;
+}
+
 .title {
   font-family: 'Passion One', cursive;
   font-size: 80px;
@@ -56,3 +61,5 @@
   opacity: .6;
   color: black;
 }
+
+
