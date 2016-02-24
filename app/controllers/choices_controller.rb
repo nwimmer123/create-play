@@ -9,30 +9,23 @@ class ChoicesController < ApplicationController
   end
 
   def create
-    ##the form is submitting the wrong value
-    ##on second page creation, game id is changed to the user id in the path --WHY??
-      ##ANSWER - SOMEWHERE I'm swapping the choice id w the game id
 
     @game = Game.find_by_id(params[:game_id])
-
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
-    
-
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
-
     @choice.save
 
-    if @choice.parent() == nil 
-      ##this isn't working. triggered evthough it had a parent
-      @game.starting_choice_id = @choice.id
-
+      #binding.pry
+    if @game.starting_choice_id == nil 
+      @game.starting_choice = @choice
       @game.save
     else
-      @choice.choice_a = @choice.id
+      #fix me
+      #@choice.choice_a = @choice
       @choice.save
     end
 
-    redirect_to new_choice_path(@game) #with id of the clikled edit path
+    redirect_to new_choice_path(@game) 
 
   end
 
