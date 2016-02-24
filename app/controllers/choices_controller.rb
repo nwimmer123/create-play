@@ -49,6 +49,9 @@ class ChoicesController < ApplicationController
   def show
   end
 
+  def new_child
+  end
+
 end
 
 ## When I create a new choice it needs to create a new node, same in games

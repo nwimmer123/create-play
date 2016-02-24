@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   put '/games/:game_id/choices/:id', to: 'choices#update'
   get '/games/:game_id/choices/:id', to: 'choices#show', as: 'edit_show'
 
+  get '/games/:game_id/choices/:id/edit/new_child', to: 'choices#new_child', as: 'new_child'
+
 end
