@@ -1,8 +1,5 @@
 class ChoicesController < ApplicationController
 
-
-  
-
   def index
   end
 
@@ -11,13 +8,15 @@ class ChoicesController < ApplicationController
   end
 
   def create
+    ##the form is submitting the wrong value
     ##on second page creation, game id is changed to the user id in the path --WHY??
-    gameid = params[:game_id]
-    @game = Game.find_by_id(gameid)
+      ##ANSWER - SOMEWHERE I'm swapping the choice id w the game id
+   
+    @game = Game.find_by_id(params[:game_id])
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     #debugger
 
-    @choice = Choice.new(choice_params.merge(game_id: gameid))
+    @choice = Choice.new(choice_params.merge(game_id: @game.id))
  
     @choice.save
 
