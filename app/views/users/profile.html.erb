@@ -24,11 +24,15 @@
     <div class="btn-group" role="group">
       <h2>Your Games</h2>
         <div class="container">
-        <% @user.games.each do |game| %>
-          <h4 class=""><%= link_to game.title, "/games/#{game.id}" %> </h4>
-          <button class="" type="button"><%= button_to "Edit", edit_game_path(game.id), method: "get", class: "btn-warning " %></button>
-          <button class=""><%= button_to "Delete", delete_game_path(game.id), method: "delete", data: {confirm: "Are you sure you want to delete this game?"}, class: "btn btn-danger" %></button>
-        <% end %>
+          <div class="row">
+            <div class="col-sm-4">
+              <% @user.games.each do |game| %>
+                <h4 class=""><%= link_to game.title, "/games/#{game.id}" %> </h4>
+                <button class="" type="button"><%= button_to "Edit", edit_game_path(game.id), method: "get", class: "btn-warning " %></button>
+                <button class=""><%= button_to "Delete", delete_game_path(game.id), method: "delete", data: {confirm: "Are you sure you want to delete this game?"}, class: "btn btn-danger" %></button>
+              <% end %>
+            </div>
+          </div>
       </div>
     </div>
   </div>
