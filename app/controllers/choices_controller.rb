@@ -20,8 +20,6 @@ class ChoicesController < ApplicationController
       @game.starting_choice = @choice
       @game.save
     else
-      #fix me
-      #@choice.choice_a = @choice
       @choice.save
     end
 
@@ -29,21 +27,14 @@ class ChoicesController < ApplicationController
 
   end
 
-  #in create assigns chuld parents id
-  #@choice = Choice.new(choice_params.merge(choice_a_id: params[:id]))
-
   def edit
-    if @choice == nil
-      @choice = Choice.new
-    else
-      @choice = Choice.find_by_id(params[:id])
-    end
+    @choice = Choice.find_by_id(params[:id])
   end
 
   def update
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     @choice.update_attributes(choice_params)
-    redirect_to edit_choice_path(@choice.id)
+    redirect_to edit_choice_path(@choice.game_id,@choice)
   end
 
   def show

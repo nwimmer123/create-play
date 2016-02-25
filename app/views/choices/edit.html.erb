@@ -14,32 +14,36 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="choiceAtext">First Choice</label>
-            <div class="col-md-8">
-              <%= f.text_field :choice_a_text, required: true, class: "form-control" %><br>
+          <div class="container">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="choiceAtext">First Choice</label>
+              <div class="col-md-8">
+                <%= f.text_field :choice_a_text, required: true, class: "form-control" %><br>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= button_to "Edit This Path", new_child_path, method: "get", class: "edit btn btn-warning" %>
+              </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-md-12">
-              <%= button_to "Edit This Path", new_child_path, method: "get", class: "btn btn-success" %>
+          <div class="container">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="choiceBtext">Second Choice</label>
+              <div class="col-md-8">
+                <%= f.text_field :choice_b_text, required: true, class: "form-control" %><br>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12">
+                <%= button_to "Edit This Path", new_child_path, method: "get", class: "edit btn btn-warning" %>
+              </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="choiceBtext">Second Choice</label>
-            <div class="col-md-8">
-              <%= f.text_field :choice_b_text, required: true, class: "form-control" %><br>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12">
-              <%= button_to "Edit This Path", new_child_path, method: "get", class: "btn btn-success" %>
-            </div>
-          </div>
-
+          
           <div class="form-group">
             <div class="col-md-12">
               <%= f.submit "Save", class: "btn btn-success" %>

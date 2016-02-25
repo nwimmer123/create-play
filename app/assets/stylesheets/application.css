@@ -85,4 +85,8 @@ button {
   text-shadow: 1px 1px #AA2AB9;
 }
 
+.edit {
+  float: right;
+}
+
 
