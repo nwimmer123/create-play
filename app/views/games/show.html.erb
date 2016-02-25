@@ -1,8 +1,10 @@
- 
+<div class="container text-center">
   <h1><%= @game.title %></h1>
   <br>
   <div class="container">
     <%= @game.backstory%>
   </div>
+  <br>
 
-<%= button_to "Next", edit_show_path(@game, @game.starting_choice_id), method: "get", class: "btn btn-primary" %>
+  <%= button_to "Next", edit_show_path(@game, @game.starting_choice_id), method: "get", class: "btn btn-primary" %>
+</div>
