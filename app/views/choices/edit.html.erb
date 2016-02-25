@@ -24,7 +24,11 @@
 
             <div class="form-group">
               <div class="col-md-12">
-                <%= button_to "Edit This Path", new_child_path(@choice.game_id, @choice), method: "get", class: "edit btn btn-warning" %>
+                <% if @choice.child_a %>
+                  <%= link_to "Edit Path A", edit_choice_path(@choice.game_id, @choice.child_a), class: "edit btn btn-warning" %>
+                <% else %>
+                  <%= button_to "Create Path A", create_child_path(@choice.game_id, @choice.id, "a"), formmethod: "post", formaction: create_child_path(@choice.game_id, @choice.id, "a"), class: "edit btn btn-warning" %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -39,8 +43,11 @@
 
             <div class="form-group">
               <div class="col-md-12">
-                <%= button_to "Edit This Path", new_child_path(@choice.game_id, @choice), method: "get", class: "edit btn btn-warning" %>
-              </div>
+                <% if @choice.child_b %>
+                  <%= link_to "Edit Path B", edit_choice_path(@choice.game_id, @choice.child_b), class: "edit btn btn-warning" %>
+                <% else %>
+                  <%= button_to "Create Path B", create_child_path(@choice.game_id, @choice.id, "b"), formmethod: "post", formaction: create_child_path(@choice.game_id, @choice.id, "b"), class: "edit btn btn-warning" %>
+                <% end %>
             </div>
           </div>
 

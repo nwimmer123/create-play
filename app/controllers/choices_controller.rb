@@ -56,14 +56,17 @@ class ChoicesController < ApplicationController
   def show
   end
 
-  def new_child
-    @choice = Choice.new 
-    @game = Game.find_by_id(params[:game_id])
-    #assign parent child relationship here
-    @parent = Choice.find_by_id(params[:id])
-    
-    render :new
+  def create_child
+    @parent_choice = Choice.find(params[:choice_id])
+    @child_choice = Choice.create(game_id: params[:game_id])
 
+    if params[:letter] == "a"
+      @parent_choice.update!(choice_a_id: @child_choice.id)  
+    elsif params[:letter] == "b"
+      @parent_choice.update!(choice_b_id: @child_choice.id)  
+    end
+    
+    redirect_to edit_choice_path(@child_choice.game_id, @child_choice.id)
   end
 
 end

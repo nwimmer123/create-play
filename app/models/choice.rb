@@ -16,5 +16,17 @@ class Choice < ActiveRecord::Base
     !parent.nil?
   end
 
+  def children
+    children = Choice.where(id: [self.choice_a_id, self.choice_b_id].compact )
+    children.empty? ? nil : children.first
+  end
+
+  def child_a
+    Choice.find_by_id(self.choice_a_id)
+  end
+
+  def child_b
+    Choice.find_by_id(self.choice_b_id)
+  end
 
 end
