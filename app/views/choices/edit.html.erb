@@ -24,7 +24,7 @@
 
             <div class="form-group">
               <div class="col-md-12">
-                <%= button_to "Edit This Path", new_child_path, method: "get", class: "edit btn btn-warning" %>
+                <%= button_to "Edit This Path", new_child_path(@choice.game_id, @choice), method: "get", class: "edit btn btn-warning" %>
               </div>
             </div>
           </div>
@@ -39,13 +39,13 @@
 
             <div class="form-group">
               <div class="col-md-12">
-                <%= button_to "Edit This Path", new_child_path, method: "get", class: "edit btn btn-warning" %>
+                <%= button_to "Edit This Path", new_child_path(@choice.game_id, @choice), method: "get", class: "edit btn btn-warning" %>
               </div>
             </div>
           </div>
 
-          <% if @choice.parent?%>
-            <%= f.hidden_field :value => @choice.parent %>
+          <% unless @parent.nil? %>
+            <%= f.hidden_field :parent_id, :value => @parent.id %>
           <% end %>
 
           <div class="form-group">
