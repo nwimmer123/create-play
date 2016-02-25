@@ -1,7 +1,11 @@
-<h1>Games to play</h1>
-<ul>
-  <% @games.each do |game| %>
-    <li><%= link_to game.title, "/games/#{game.id}" %></li>
-  <% end %>
+<div align="center"><img src="assets/library.jpg" class="background"></div>
 
-</ul>
+<div class="text-center">
+  <h1 class="text">Games to Play</h1>
+  <ul>
+    <% @games.each do |game| %>
+    <div class="stories col-sm-4">
+      <h3><%= link_to game.title, "/games/#{game.id}" %></h3>
+    <% end %>
+  </ul>
+</div>

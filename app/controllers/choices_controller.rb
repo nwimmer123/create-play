@@ -54,6 +54,9 @@ class ChoicesController < ApplicationController
   end
 
   def show
+    @game = Game.find_by_id(params[:game_id])
+    @choice = Choice.find_by_id(params[:id])
+
   end
 
   def create_child

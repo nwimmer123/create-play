@@ -88,5 +88,10 @@ button {
 .edit {
   float: right;
 }
+.stories {
+  background-color: white;
+  border-radius: 60px;
+  opacity: .9;
+}
 
 
