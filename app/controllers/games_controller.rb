@@ -26,10 +26,11 @@ class GamesController < ApplicationController
   end
 
   def update
+    @choice = Choice.find_by_id(params[:id])
     @game = Game.find_by_id(params[:id])
     game_params = params.require(:game).permit(:title, :backstory)
     @game.update_attributes(game_params)
-    redirect_to new_choice_path(@game.id)
+    redirect_to edit_choice_path(@game.id, @game.starting_choice_id)
   end
 
   def destroy

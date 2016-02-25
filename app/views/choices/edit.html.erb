@@ -18,7 +18,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="choiceAtext">First Choice</label>
               <div class="col-md-8">
-                <%= f.text_field :choice_a_text, required: true, class: "form-control" %><br>
+                <%= f.text_field :choice_a_text, class: "form-control" %><br>
               </div>
             </div>
 
@@ -27,7 +27,7 @@
                 <% if @choice.child_a %>
                   <%= link_to "Edit Path A", edit_choice_path(@choice.game_id, @choice.child_a), class: "edit btn btn-warning" %>
                 <% else %>
-                  <%= button_to "Create Path A", create_child_path(@choice.game_id, @choice.id, "a"), formmethod: "post", formaction: create_child_path(@choice.game_id, @choice.id, "a"), class: "edit btn btn-warning" %>
+                  <%= button_to "Create Path A", create_a_child_path(@choice.game_id, @choice.id, "a"), formmethod: "post", formaction: create_a_child_path(@choice.game_id, @choice.id, "a"), class: "edit btn btn-warning" %>
                 <% end %>
               </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="choiceBtext">Second Choice</label>
               <div class="col-md-8">
-                <%= f.text_field :choice_b_text, required: true, class: "form-control" %><br>
+                <%= f.text_field :choice_b_text, class: "form-control" %><br>
               </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <% if @choice.child_b %>
                   <%= link_to "Edit Path B", edit_choice_path(@choice.game_id, @choice.child_b), class: "edit btn btn-warning" %>
                 <% else %>
-                  <%= button_to "Create Path B", create_child_path(@choice.game_id, @choice.id, "b"), formmethod: "post", formaction: create_child_path(@choice.game_id, @choice.id, "b"), class: "edit btn btn-warning" %>
+                  <%= button_to "Create Path B", create_b_child_path(@choice.game_id, @choice.id, "b"), formmethod: "post", formaction: create_b_child_path(@choice.game_id, @choice.id, "b"), class: "edit btn btn-warning" %>
                 <% end %>
             </div>
           </div>
