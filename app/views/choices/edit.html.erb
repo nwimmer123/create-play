@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
-      <%= form_for :choice, url: new_choice_path do |f| %>
+      <%= form_for :choice, url: {action: "update"}, method: "patch" do |f| %>
         <fieldset>
           <h1 class="text-center">New Choice</h1>
 
@@ -43,15 +43,17 @@
               </div>
             </div>
           </div>
-          
+
+          <% if @choice.parent?%>
+            <%= f.hidden_field :value => @choice.parent %>
+          <% end %>
+
           <div class="form-group">
             <div class="col-md-12">
               <%= f.submit "Save", class: "btn btn-success" %>
             </div>
           </div>
-          <% if @choice.parent()%>
-            <%= f.hidden_field :value => @choice.parent %>
-          <% end %>
+          
           
         </fieldset>
       <% end %>

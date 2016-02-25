@@ -31,15 +31,18 @@ class ChoicesController < ApplicationController
   end
 
   def update
+    @choice = Choice.find_by_id(params[:id])
     choice_params = params.require(:choice).permit(:story, :choice_a_text, :choice_a_id, :choice_b_text, :choice_b_id, :game_id)
     @choice.update_attributes(choice_params)
-    redirect_to edit_choice_path(@choice.game_id,@choice)
+    redirect_to edit_choice_path(@choice.game_id, @choice)
   end
 
   def show
   end
 
   def new_child
+    @choice = Choice.new 
+    @game = Game.find_by_id(params[:game_id])
   end
 
 end
