@@ -15,7 +15,6 @@ class ChoicesController < ApplicationController
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
     @choice.save
 
-      #binding.pry
     if @game.starting_choice_id == nil 
       @game.starting_choice = @choice
       @game.save

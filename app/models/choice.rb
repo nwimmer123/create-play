@@ -8,8 +8,11 @@ class Choice < ActiveRecord::Base
   #has_one :parent_choice,  class_name: 'Choice', foreign_key: 'choice_a_id'
   #has_one :parent_choice, 
   def parent
-    parent = Choice.where("choice_a_id = ? OR choice_b_id = ?", self.id, self.id)
-    parent.empty? ? nil : parent.first
-  end 
+    @parent ||= Choice.where("choice_a_id = ? OR choice_b_id = ?", self.id, self.id).first
+  end
+
+  def parent?
+    !@parent.nil?
+  end
 
 end
