@@ -45,8 +45,8 @@
               <%= f.submit "Save", class: "btn btn-success" %>
             </div>
           </div>
-          <% if @choice.choice_a_id != nil || @choice.choice_b_id != nil%>
-            <%= f.hidden_field @choice.choice_a_id || @choice.choice_b_id, :value => @choice.choice_a_id || @choice.choice_b_id%>
+          <% if @choice.parent()%>
+            <%= f.hidden_field :value => @choice.parent %>
           <% end %>
           
         </fieldset>

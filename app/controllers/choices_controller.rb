@@ -25,7 +25,7 @@ class ChoicesController < ApplicationController
       @choice.save
     end
 
-    redirect_to new_choice_path(@game) 
+    redirect_to edit_choice_path(@games_id,@choice) 
 
   end
 
