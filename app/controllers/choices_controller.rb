@@ -22,22 +22,6 @@ class ChoicesController < ApplicationController
       @choice.save
     end
 
-    #I need to assign the parent here, connect the current choice
-    #a id with the hidden params id
-    # if @choice.choice_a_id == nil
-    #    @choice.choice_a = @parent.id
-    #    @choice.save
-    # end
-
-
-    # p "PARENT? #{@parent}"
-    # unless @parent.nil?
-    #   @choice.choice_a = @parent.id
-    # p "CHOICE #{@choice}"
-    # p "CHOICE A #{@choice.choice_a}"
-    # p "PARENT? #{@parent.id}" 
-  #end
-
     redirect_to edit_choice_path(@choice.game_id,@choice) 
 
   end
