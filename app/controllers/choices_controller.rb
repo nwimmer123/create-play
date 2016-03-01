@@ -15,12 +15,19 @@ class ChoicesController < ApplicationController
     @choice = Choice.new(choice_params.merge(game_id: @game.id))
     @choice.save
 
-    if @game.starting_choice_id == nil 
+    if @game.starting_choice_id.nil?
       @game.starting_choice = @choice
       @game.save
     else
       @choice.save
     end
+
+    # if @game.starting_choice_id == nil 
+    #   @game.starting_choice = @choice
+    #   @game.save
+    # else
+    #   @choice.save
+    # end
 
     redirect_to edit_choice_path(@choice.game_id,@choice) 
 
@@ -58,11 +65,4 @@ class ChoicesController < ApplicationController
 
 end
 
-## When I create a new choice it needs to create a new node, same in games
-# def new_a
-#   parent = Choice.find_by_id()
-#   child = Choice.create()
-#   parent.choice_a = child
-#   redirect_to choices_edit(child)
-# end
 
