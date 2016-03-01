@@ -21,5 +21,11 @@ module SessionsHelper
   def authorized?(user)
     current_user == user
   end
+
+  def logged_out?
+    if current_user != nil
+      redirect_to user_path(current_user)
+    end
+  end
   
 end
