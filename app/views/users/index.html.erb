@@ -1,16 +1,17 @@
-<div align="center"><img id="background-splash" class="background"></div>
-<div class="cover"></div>
-<div class="container text-center title">
-  <h1 class="title">Create Your Own Adventure</h1>
-</div>
-<br>
-<div class="container text-center">
-  <%= button_to "Play", index_games_path, method: "get", class: "btn btn-warning" %>
-</div>
-<br>
-<br>
-<br>
-<div class="container text-center">
-  <%= button_to "Create", new_game_path, method: "get", class: "btn btn-warning" %>
-</div>
+<body id="background-splash">
+  <div class="cover"></div>
+  <div class="container text-center title">
+    <h1 class="title">Create Your Own Adventure</h1>
+  </div>
+  <br>
+  <div class="container text-center">
+    <%= button_to "Play", index_games_path, method: "get", class: "btn btn-warning" %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container text-center">
+    <%= button_to "Create", new_game_path, method: "get", class: "btn btn-warning" %>
+  </div>
+</body>
     
