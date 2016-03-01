@@ -22,13 +22,6 @@ class ChoicesController < ApplicationController
       @choice.save
     end
 
-    # if @game.starting_choice_id == nil 
-    #   @game.starting_choice = @choice
-    #   @game.save
-    # else
-    #   @choice.save
-    # end
-
     redirect_to edit_choice_path(@choice.game_id,@choice) 
 
   end

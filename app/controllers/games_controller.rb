@@ -5,12 +5,10 @@ class GamesController < ApplicationController
   end
 
   def new
-    puts 'new called'
     @game = Game.new
   end
 
   def show
-    puts 'show called'
     @game = Game.find_by_id(params[:id])
   end
 
