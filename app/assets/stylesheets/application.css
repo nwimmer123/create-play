@@ -38,7 +38,7 @@
 }
 
 #background-splash {
-  background: url("public/assets/door.jpg") no-repeat center center fixed;
+  background: image-url("public/assets/door.jpg") no-repeat center center fixed;
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
