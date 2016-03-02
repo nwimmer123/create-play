@@ -11,7 +11,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    #@game = Game.find_by_id(params[:id])
   end
 
   def create
@@ -21,18 +20,15 @@ class GamesController < ApplicationController
   end
 
   def edit
-    #@game = Game.find_by_id(params[:id])
   end
 
   def update
     @choice = Choice.find_by_id(params[:id])
-    #@game = Game.find_by_id(params[:id])
     @game.update_attributes(game_params)
     redirect_to edit_choice_path(@game.id, @game.starting_choice_id)
   end
 
   def destroy
-    #@game = Game.find_by_id(params[:id])
     @game.destroy
     redirect_to my_profile_path
   end

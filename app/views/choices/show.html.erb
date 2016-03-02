@@ -3,11 +3,11 @@
   <p> <%= @choice.story %></p>
   <br>
 
-  <% if @choice.choice_a_id != nil %>
+  <% if @choice.choice_a_id %>
     <%= button_to @choice.choice_a_text, edit_show_path(@game, @choice.choice_a_id), method: "get", class: "btn btn-primary" %>
   <% end %>
 
-  <% if @choice.choice_b_id != nil %>
+  <% if @choice.choice_b_id %>
     <%= button_to @choice.choice_b_text, edit_show_path(@game, @choice.choice_b_id), method: "get", class: "btn btn-primary" %>
   <% end %>
 
