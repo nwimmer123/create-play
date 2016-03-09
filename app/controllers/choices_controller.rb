@@ -40,7 +40,6 @@ class ChoicesController < ApplicationController
   def show
     @game = Game.find_by_id(params[:game_id])
     @choice = Choice.find_by_id(params[:id])
-
   end
 
   def create_child
@@ -55,6 +54,7 @@ class ChoicesController < ApplicationController
     
     redirect_to edit_choice_path(@child_choice.game_id, @child_choice.id)
   end
+
 
 end
 
