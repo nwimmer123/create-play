@@ -1,31 +1,32 @@
 class ChoicesController < ApplicationController
 
   def index
-    @choice = choice.scoped
-    @choice = choice.new
+    @choice = Choice.scoped
+    @choice = Choice.new
   end
 
   def show
-    @choice = choice.find(params[:id])
+    @choice = Choice.find(params[:id])
   end
 
   def new
-    @choice = choice.new(:parent_id => params[:parent_id])
+    @choice = Choice.new(:parent_id => params[:parent_id])
+    @game = Game.find_by_id(params[:game_id])
   end
 
   def create
-    @choice = choice.new(params[:choice])
+    @choice = Choice.new(params[:choice])
     if @choice.save
-      redirect_to choice_url
+      redirect_to new_choice_path
     else
       render :new
     end
   end
 
   def destroy
-    @choice = choice.find(params[:id])
+    @choice = Choice.find(params[:id])
     @choice.destroy
-    redirect_to choice_url
+    redirect_to new_choice_path
   end
 
   # def index

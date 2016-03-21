@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   delete '/games/:id', to: 'games#destroy', as: 'delete_game'
  
   get '/games/:game_id/choices/new', to: 'choices#new', as: 'new_choice'
-  post '/games/:game_id/choices/new', to: 'choices#create', as: 'create_c'
+  post '/games/:game_id/choices/new', to: 'choices#create', as: 'create_choice'
   get '/games/:game_id/choices/:id/edit', to: 'choices#edit', as: 'edit_choice' 
   patch '/games/:game_id/choices/:choice_id/child/:letter', to: 'choices#create_child', as: 'create_a_child'
   post '/games/:game_id/choices/:choice_id/child/:letter', to: 'choices#create_child', as: 'create_b_child' #TODO make this post

@@ -1,0 +1,6 @@
+
+<% title "Choices" %>
+
+<%= nested_messages @choices.arrange(:order => :created_at) %>
+
+<%= render "form" %>
